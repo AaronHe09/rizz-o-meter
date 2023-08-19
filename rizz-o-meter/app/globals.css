@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&family=Fjalla+One&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--fjalla); 
+}
+
+:root{
+  --anonymous: 'Anonymous Pro', monospace;
+  --fjalla: 'Fjalla One', sans-serif;
+}
