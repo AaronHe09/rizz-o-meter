@@ -12,7 +12,7 @@ const Gif = ({ absolute }) => {
         loop
         className={
           absolute === true
-            ? "w-24 absolute  top-[-30px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 "
+            ? "w-24 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-[-45deg]"
             : "w-60"
         }
       ></Player>

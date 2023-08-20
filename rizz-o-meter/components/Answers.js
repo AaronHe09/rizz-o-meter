@@ -14,9 +14,9 @@ const Answers = ({
     <AnimatePresence>
       <motion.div
         className={clsx(
-          "relative ml-16 before:content-[''] before:absolute before:left-[-1px] before:top-[-2px] before:border-l-2 before:border-dotted before:border-white",
-          { "sm:before:h-[260px]": currentQuestion !== 6 },
-          { "sm:before:h-[280px]": currentQuestion === 6 }
+          "relative ml-16 before:content-[''] before:absolute before:left-[-1px] before:top-[-2px] before:border-l-2 before:border-dotted before:border-white text-center",
+          { "before:h-[260px]": currentQuestion !== 6 },
+          { "before:h-[280px]": currentQuestion === 6 }
         )}
         variants={variant}
         initial="hidden"
@@ -33,7 +33,7 @@ const Answers = ({
             >
               <button
                 type="button"
-                className="text-lg before:absolute before:transform before:-translate-y-1/2 before:top-1/2 before:left-[-10px] before:h-[2px] before:w-5 before:bg-white before:z-[-1]"
+                className="text-lg text-center before:absolute before:transform before:-translate-y-1/2 before:top-1/2 before:left-[-10px] before:h-[2px] before:w-5 before:bg-white before:z-[-1]"
                 onClick={() => handleAnswer()}
               >
                 {option.text}
