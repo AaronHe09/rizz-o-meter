@@ -17,7 +17,7 @@ const Answers = ({ questions, currentQuestion, variant, items }) => {
         {questions[currentQuestion].options.map((option, index) => {
           return (
             <motion.div
-              className="relative text-sm sm:text-lg cursor-default ml-5 mt-5 pl-7 py-4 rounded-xl bg-white"
+              className="relative text-sm sm:text-lg cursor-default ml-5 mt-5 pl-7 py-4 rounded-xl bg-white hover:shadow-xl transition-shadow duration-500"
               variants={items}
               key={uuid}
             >
