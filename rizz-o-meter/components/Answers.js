@@ -13,7 +13,11 @@ const Answers = ({
   return (
     <AnimatePresence>
       <motion.div
-        className="relative ml-16 before:content-[''] before:absolute before:left-[-1px] before:top-[-2px] before:h-64 sm:before:h-[260px] before:border-l-2 before:border-dotted before:border-white"
+        className={clsx(
+          "relative ml-16 before:content-[''] before:absolute before:left-[-1px] before:top-[-2px] before:border-l-2 before:border-dotted before:border-white",
+          { "sm:before:h-[260px]": currentQuestion !== 6 },
+          { "sm:before:h-[280px]": currentQuestion === 6 }
+        )}
         variants={variant}
         initial="hidden"
         animate="show"
@@ -23,13 +27,13 @@ const Answers = ({
         {questions[currentQuestion].options.map((option, index) => {
           return (
             <motion.div
-              className="relative text-sm sm:text-lg cursor-default ml-5 mt-5 pl-7 py-4 rounded-xl bg-white hover:shadow-xl transition-shadow duration-500"
+              className="relative text-sm sm:text-lg cursor-default ml-5 mt-5 px-6 py-4 rounded-xl bg-white hover:shadow-xl transition-shadow duration-500"
               variants={items}
               key={uuid()}
             >
               <button
                 type="button"
-                className="before:absolute before:transform before:-translate-y-1/2 before:top-1/2 before:left-[-10px] before:h-[2px] before:w-5 before:bg-white before:z-[-1]"
+                className="text-lg before:absolute before:transform before:-translate-y-1/2 before:top-1/2 before:left-[-10px] before:h-[2px] before:w-5 before:bg-white before:z-[-1]"
                 onClick={() => handleAnswer()}
               >
                 {option.text}
