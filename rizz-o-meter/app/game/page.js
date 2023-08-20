@@ -1,4 +1,5 @@
 "use client";
+import Answers from "@/components/Answers";
 import Gif from "@/components/Gif";
 import Question from "@/components/Question";
 import { useState } from "react";
@@ -103,8 +104,9 @@ const Game = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   return (
-    <section>
+    <section className="max-w-[462px] w-full">
       <Question questions={questions} currentQuestion={currentQuestion} />
+      <Answers currentQuestion={currentQuestion} questions={questions} />
     </section>
   );
 };
