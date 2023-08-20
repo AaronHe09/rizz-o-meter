@@ -34,7 +34,7 @@ const Answers = ({
               <button
                 type="button"
                 className="text-lg text-center before:absolute before:transform before:-translate-y-1/2 before:top-1/2 before:left-[-10px] before:h-[2px] before:w-5 before:bg-white before:z-[-1]"
-                onClick={() => handleAnswer()}
+                onClick={() => handleAnswer(option.points)}
               >
                 {option.text}
               </button>

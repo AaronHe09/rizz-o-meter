@@ -125,9 +125,9 @@ const Game = () => {
     exit: { opacity: 0 },
   };
 
-  const handleAnswer = () => {
+  const handleAnswer = (points) => {
     setIsShowing(false);
-
+    setPlayerPoints(playerPoints + points);
     setTimeout(() => {
       setCurrentQuestion((prev) => prev + 1);
       setIsShowing(true);
