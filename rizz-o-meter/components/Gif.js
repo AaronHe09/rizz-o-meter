@@ -1,12 +1,21 @@
 import { Player } from "@lottiefiles/react-lottie-player";
-import question from "../public/assets/question.json";
-
+import gif from "../public/assets/question.json";
 import React from "react";
+import { transform } from "framer-motion";
 
-const Gif = () => {
+const Gif = ({ absolute }) => {
   return (
     <>
-      <Player src={question} autoplay loop className=" w-60"></Player>
+      <Player
+        src={gif}
+        autoplay
+        loop
+        className={
+          absolute === true
+            ? "w-24 absolute  top-[-30px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 "
+            : "w-60"
+        }
+      ></Player>
     </>
   );
 };

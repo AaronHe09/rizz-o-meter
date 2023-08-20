@@ -59,9 +59,9 @@ export default function Home() {
               Inner "Rizz"!
             </motion.span>
           </motion.h1>
-          <Gif />
+          <Gif absolute={false} />
           <motion.p
-            className="text-center text-md text-lg cursor-default max-w-[242px] sm:max-w-none"
+            className="text-center text-lg cursor-default max-w-[242px] sm:max-w-none"
             variants={items}
             key={uuid()}
           >
