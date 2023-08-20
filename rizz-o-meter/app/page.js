@@ -1,31 +1,68 @@
 "use client";
 import { Player } from "@lottiefiles/react-lottie-player";
 import question from "../public/assets/question.json";
-import "animate.css";
+import { useRouter } from "next/navigation";
+import { easeInOut, easeOut, motion } from "framer-motion";
 
 export default function Home() {
+  const router = useRouter();
+
+  const variant = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.2 } },
+  };
+
+  const items = {
+    hidden: { y: 50, opacity: 0 },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        easeOut,
+      },
+    },
+  };
+
+  const handleClick = () => {
+    router.push("/game");
+  };
+
   return (
-    <section className="text-center flex flex-col justify-center items-center">
-      <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.15] text-black cursor-default animate__animated animate__fadeInDown">
+    <motion.section
+      className="text-center flex flex-col justify-center items-center"
+      variants={variant}
+      initial="hidden"
+      animate="show"
+    >
+      <motion.h1
+        className="text-5xl md:text-6xl font-extrabold leading-[1.15] text-black cursor-default"
+        variants={items}
+      >
         Welcome to <br className="sm:hidden" />
         Rizz-O-Meter
         <br />
-        <span className="orange_gradient inline-block mt-2">
+        <motion.span className="orange_gradient inline-block mt-2">
           Unleash Your <br className="sm:hidden" />
           Inner "Rizz"!
-        </span>
-      </h1>
+        </motion.span>
+      </motion.h1>
       <Player src={question} autoplay loop className=" w-60"></Player>
-      <p className="text-center text-md text-lg cursor-default animate__animated animate__fadeInDown max-w-[242px] sm:max-w-none">
+      <motion.p
+        className="text-center text-md text-lg cursor-default max-w-[242px] sm:max-w-none"
+        variants={items}
+      >
         You're about to embark on a playful journey to determine your "Rizz"
         level.
-      </p>
-      <button
+      </motion.p>
+      <motion.button
         type="button"
-        className=" bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 mt-7 rounded-lg animate__animated animate__fadeIn text-2xl border-none py-2 w-52 hover:scale-110 transition-all duration-500"
+        className=" bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 mt-7 rounded-lg text-2xl border-none py-2 w-52"
+        onClick={handleClick}
+        variants={items}
       >
         Get Started
-      </button>
-    </section>
+      </motion.button>
+    </motion.section>
   );
 }
