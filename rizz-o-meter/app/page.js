@@ -2,7 +2,7 @@
 import { Player } from "@lottiefiles/react-lottie-player";
 import question from "../public/assets/question.json";
 import { useRouter } from "next/navigation";
-import { easeInOut, easeOut, motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 
 export default function Home() {
   const router = useRouter();

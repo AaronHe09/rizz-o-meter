@@ -1,9 +1,21 @@
+"use client";
 import React from "react";
 import Link from "next/link";
+import { motion, easeOut } from "framer-motion";
 
 const Footer = () => {
+  const variant = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 },
+  };
+
   return (
-    <footer className=" absolute bottom-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 flex flex-col text-center">
+    <motion.footer
+      className=" absolute bottom-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 flex flex-col text-center"
+      variants={variant}
+      initial="hidden"
+      animate="show"
+    >
       <div>
         <Link
           href="https://github.com/AaronHe09"
@@ -20,7 +32,7 @@ const Footer = () => {
         </Link>
       </div>
       <p className="font-anonymous text">aaronhe09@yahoo.com</p>
-    </footer>
+    </motion.footer>
   );
 };
 
