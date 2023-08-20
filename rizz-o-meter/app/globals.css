@@ -14,6 +14,14 @@
   --fjalla: "Fjalla One", sans-serif;
 }
 
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
 .main {
   width: 100vw;
   min-height: 100vh;
@@ -77,5 +85,9 @@
   }
 }
 .app {
-  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6 h-screen overflow-hidden;
+  @apply relative z-10 flex justify-center items-center flex-col max-w-[612px] w-full sm:m-16 m-6 h-[80vh];
+}
+
+.orange_gradient {
+  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
 }

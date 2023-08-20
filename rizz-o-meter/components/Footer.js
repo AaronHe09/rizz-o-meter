@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className=" absolute bottom-0 left-1/2 transform -translate-y-1/2 flex flex-col gap-4 animate-slideIn text-center">
+    <footer className=" absolute bottom-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 flex flex-col text-center">
       <div>
         <Link
           href="https://github.com/AaronHe09"
@@ -11,7 +11,7 @@ const Footer = () => {
         >
           GitHub
         </Link>
-        <span className="font-anonymous text-xl">|</span>
+        <span className="font-anonymous text-xl m-2">|</span>
         <Link
           href="https://www.linkedin.com/in/aaronhe09/"
           className="font-anonymous text-xl"
