@@ -1,7 +1,6 @@
 import { Player } from "@lottiefiles/react-lottie-player";
 import gif from "../public/assets/question.json";
 import React from "react";
-import { transform } from "framer-motion";
 
 const Gif = ({ absolute }) => {
   return (
