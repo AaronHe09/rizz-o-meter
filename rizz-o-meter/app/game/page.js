@@ -3,6 +3,8 @@ import Answers from "@/components/Answers";
 import Gif from "@/components/Gif";
 import Question from "@/components/Question";
 import { useState } from "react";
+import { easeOut, motion, AnimatePresence } from "framer-motion";
+import uuid from "react-uuid";
 
 const questions = [
   {
@@ -103,11 +105,47 @@ const questions = [
 const Game = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
+  const variant = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.2 } },
+  };
+
+  const items = {
+    hidden: { y: 50, opacity: 0 },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        easeOut,
+      },
+    },
+    exit: { opacity: 0 },
+  };
+
   return (
-    <section className="max-w-[462px] w-full">
-      <Question questions={questions} currentQuestion={currentQuestion} />
-      <Answers currentQuestion={currentQuestion} questions={questions} />
-    </section>
+    <AnimatePresence>
+      <motion.section
+        className="max-w-[462px] w-full"
+        variants={variant}
+        initial="hidden"
+        animate="show"
+        exit="hidden"
+        key={uuid()}
+      >
+        <Question
+          questions={questions}
+          currentQuestion={currentQuestion}
+          items={items}
+        />
+        <Answers
+          currentQuestion={currentQuestion}
+          questions={questions}
+          variant={variant}
+          items={items}
+        />
+      </motion.section>
+    </AnimatePresence>
   );
 };
 
