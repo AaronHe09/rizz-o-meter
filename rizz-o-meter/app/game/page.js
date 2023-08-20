@@ -5,6 +5,7 @@ import Question from "@/components/Question";
 import { useState } from "react";
 import { easeOut, motion, AnimatePresence } from "framer-motion";
 import uuid from "react-uuid";
+import { useRouter } from "next/navigation";
 
 const questions = [
   {
@@ -103,9 +104,10 @@ const questions = [
 ];
 
 const Game = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(8);
   const [playerPoints, setPlayerPoints] = useState(0);
   const [isShowing, setIsShowing] = useState(true);
+  const router = useRouter();
 
   const variant = {
     hidden: { opacity: 0 },
@@ -128,8 +130,12 @@ const Game = () => {
   const handleAnswer = (points) => {
     setIsShowing(false);
     setPlayerPoints(playerPoints + points);
+    if (currentQuestion === 9) {
+      router.push("/results");
+      return;
+    }
     setTimeout(() => {
-      setCurrentQuestion((prev) => prev + 1);
+      setCurrentQuestion(currentQuestion + 1);
       setIsShowing(true);
     }, 500);
   };
