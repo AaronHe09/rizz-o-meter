@@ -1,10 +1,9 @@
 "use client";
-import { Player } from "@lottiefiles/react-lottie-player";
-import question from "../public/assets/question.json";
 import { useRouter } from "next/navigation";
 import { easeOut, motion, AnimatePresence } from "framer-motion";
 import uuid from "react-uuid";
 import { useState } from "react";
+import Gif from "@/components/Gif";
 
 export default function Home() {
   const [isShowing, setIsShowing] = useState(true);
@@ -60,7 +59,7 @@ export default function Home() {
               Inner "Rizz"!
             </motion.span>
           </motion.h1>
-          <Player src={question} autoplay loop className=" w-60"></Player>
+          <Gif />
           <motion.p
             className="text-center text-md text-lg cursor-default max-w-[242px] sm:max-w-none"
             variants={items}

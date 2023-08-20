@@ -1,7 +1,7 @@
 import React from "react";
 
 const Game = () => {
-  return <div>Game</div>;
+  return <section></section>;
 };
 
 export default Game;
