@@ -104,6 +104,8 @@ const questions = [
 
 const Game = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [playerPoints, setPlayerPoints] = useState(0);
+  const [isShowing, setIsShowing] = useState(true);
 
   const variant = {
     hidden: { opacity: 0 },
@@ -123,28 +125,40 @@ const Game = () => {
     exit: { opacity: 0 },
   };
 
+  const handleAnswer = () => {
+    setIsShowing(false);
+
+    setTimeout(() => {
+      setCurrentQuestion((prev) => prev + 1);
+      setIsShowing(true);
+    }, 500);
+  };
+
   return (
     <AnimatePresence>
-      <motion.section
-        className="max-w-[462px] w-full"
-        variants={variant}
-        initial="hidden"
-        animate="show"
-        exit="hidden"
-        key={uuid()}
-      >
-        <Question
-          questions={questions}
-          currentQuestion={currentQuestion}
-          items={items}
-        />
-        <Answers
-          currentQuestion={currentQuestion}
-          questions={questions}
-          variant={variant}
-          items={items}
-        />
-      </motion.section>
+      {isShowing && (
+        <motion.section
+          className="max-w-[462px] w-full"
+          variants={variant}
+          initial="hidden"
+          animate="show"
+          exit="hidden"
+          key={uuid()}
+        >
+          <Question
+            questions={questions}
+            currentQuestion={currentQuestion}
+            items={items}
+          />
+          <Answers
+            currentQuestion={currentQuestion}
+            questions={questions}
+            variant={variant}
+            items={items}
+            handleAnswer={handleAnswer}
+          />
+        </motion.section>
+      )}
     </AnimatePresence>
   );
 };

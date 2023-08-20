@@ -1,9 +1,15 @@
 import React from "react";
 import clsx from "clsx";
-import { easeOut, motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import uuid from "react-uuid";
 
-const Answers = ({ questions, currentQuestion, variant, items }) => {
+const Answers = ({
+  questions,
+  currentQuestion,
+  variant,
+  items,
+  handleAnswer,
+}) => {
   return (
     <AnimatePresence>
       <motion.div
@@ -19,11 +25,12 @@ const Answers = ({ questions, currentQuestion, variant, items }) => {
             <motion.div
               className="relative text-sm sm:text-lg cursor-default ml-5 mt-5 pl-7 py-4 rounded-xl bg-white hover:shadow-xl transition-shadow duration-500"
               variants={items}
-              key={uuid}
+              key={uuid()}
             >
               <button
                 type="button"
                 className="before:absolute before:transform before:-translate-y-1/2 before:top-1/2 before:left-[-10px] before:h-[2px] before:w-5 before:bg-white before:z-[-1]"
+                onClick={() => handleAnswer()}
               >
                 {option.text}
               </button>
