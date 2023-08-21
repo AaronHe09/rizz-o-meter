@@ -2,7 +2,7 @@
 import Answers from "@/components/Answers";
 import Gif from "@/components/Gif";
 import Question from "@/components/Question";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { easeOut, motion, AnimatePresence } from "framer-motion";
 import uuid from "react-uuid";
 import { useRouter } from "next/navigation";
@@ -108,6 +108,10 @@ const Game = () => {
   const [playerPoints, setPlayerPoints] = useState(0);
   const [isShowing, setIsShowing] = useState(true);
   const router = useRouter();
+
+  useEffect(() => {
+    setPlayerPoints(0);
+  }, []);
 
   const variant = {
     hidden: { opacity: 0 },

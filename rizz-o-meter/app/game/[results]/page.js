@@ -32,7 +32,7 @@ const Results = () => {
     <section className="flex flex-col justify-center items-center">
       <h1 className="text-center text-5xl md:text-6xl font-extrabold text-black cursor-default orange_gradient mb-2">
         {ranking}
-        <p>You Scored: {results} Points</p>
+        <p className="mt-1">You Scored: {results} Points</p>
       </h1>
       <button
         type="button"
