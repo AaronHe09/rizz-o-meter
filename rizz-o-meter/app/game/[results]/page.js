@@ -3,12 +3,14 @@ import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Form from "@/components/Form";
+import { AnimatePresence, easeOut, motion } from "framer-motion";
 
 const Results = () => {
   const [ranking, setRanking] = useState("");
   const [userAdvice, setUserAdvice] = useState("");
+  const [isShowing, setIsShowing] = useState(true);
   const { results } = useParams();
-  const route = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
     setRanking(playerRanking());
@@ -27,35 +29,72 @@ const Results = () => {
   };
 
   const handlePlayAgain = () => {
-    route.push("/");
+    setIsShowing(false);
+    setTimeout(() => {
+      router.push("/");
+    }, 300);
+  };
+
+  const variant = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 },
+  };
+
+  const items = {
+    hidden: { opacity: 0, scale: 0.5 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.7,
+        easeOut,
+      },
+    },
+    exit: { opacity: 0, scale: 0.5 },
   };
 
   return (
-    <section className="flex justify-center items-center  w-full h-[600px] gap-5">
-      <div className="basis-5/12 bg-white h-full rounded-xl"></div>
-      <div className="basis-7/12 h-full text-center">
-        <div>
-          <h1 className="text-center text-4xl sm:text-5xl font-extrabold text-black cursor-default orange_gradient mb-2">
-            {ranking}
-          </h1>
-          <p className="mt-1 text-lg sm:text-xl">
-            You Scored: {results} Points
-          </p>
-        </div>
-        <Form
-          ranking={ranking}
-          setUserAdvice={setUserAdvice}
-          userAdvice={userAdvice}
-        />
-        <button
-          type="button"
-          className="mt-2 text-lg py-1 px-5 rounded-md bg-black text-white"
-          onClick={handlePlayAgain}
+    <AnimatePresence>
+      {isShowing && (
+        <motion.section
+          className="flex justify-center items-center  w-full h-[600px] gap-5"
+          variants={variant}
+          initial="hidden"
+          animate="show"
+          exit="hidden"
         >
-          Play Again
-        </button>
-      </div>
-    </section>
+          <motion.div
+            className="basis-5/12 bg-white h-full rounded-xl"
+            variants={items}
+          ></motion.div>
+          <motion.div
+            className="basis-7/12 h-full text-center"
+            variants={items}
+          >
+            <div>
+              <h1 className="text-center text-4xl sm:text-5xl font-extrabold text-black cursor-default orange_gradient mb-2">
+                {ranking}
+              </h1>
+              <p className="mt-1 text-lg sm:text-xl">
+                You Scored: {results} Points
+              </p>
+            </div>
+            <Form
+              ranking={ranking}
+              setUserAdvice={setUserAdvice}
+              userAdvice={userAdvice}
+            />
+            <button
+              type="button"
+              className="mt-2 text-lg py-1 px-5 rounded-md bg-black text-white"
+              onClick={handlePlayAgain}
+            >
+              Play Again
+            </button>
+          </motion.div>
+        </motion.section>
+      )}
+    </AnimatePresence>
   );
 };
 
