@@ -30,8 +30,8 @@ const questions = [
     question: "Your secret talent is:",
     options: [
       { text: "Juggling random objects", points: 2 },
-      { text: "Impersonating cartoon characters", points: 3 },
-      { text: "Balancing spoons on your nose", points: 1 },
+      { text: "Impersonating cartoon characters", points: 1 },
+      { text: "Balancing spoons on your nose", points: 3 },
       { text: "Making your pet laugh", points: 2 },
     ],
   },
@@ -87,17 +87,17 @@ const questions = [
     question: "What's your signature dance move?",
     options: [
       { text: "The Rizz Roll", points: 2 },
-      { text: "The Giggle Groove", points: 3 },
+      { text: "The Giggle Groove", points: 2 },
       { text: "The Chuckle Cha-Cha", points: 1 },
-      { text: "The LOL Leap", points: 2 },
+      { text: "The LOL Leap", points: 3 },
     ],
   },
   {
     question: "What's your spirit animal?",
     options: [
       { text: "Silly Seal", points: 2 },
-      { text: "Laughing Llama", points: 3 },
-      { text: "Giggling Gecko", points: 1 },
+      { text: "Laughing Llama", points: 1 },
+      { text: "Giggling Gecko", points: 3 },
       { text: "Playful Penguin", points: 2 },
     ],
   },
@@ -136,7 +136,9 @@ const Game = () => {
     setPlayerPoints(playerPoints + points);
     if (currentQuestion === 9) {
       setCurrentQuestion(0);
-      router.push(`/game/${playerPoints}`);
+      setTimeout(() => {
+        router.push(`/game/${playerPoints + points}`);
+      }, 500);
       return;
     }
     setTimeout(() => {
@@ -147,6 +149,7 @@ const Game = () => {
 
   return (
     <AnimatePresence>
+      {console.log(playerPoints)}
       {isShowing && (
         <motion.section
           className="max-w-[462px] w-full"
