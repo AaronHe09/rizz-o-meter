@@ -4,7 +4,7 @@ import clsx from "clsx";
 const Form = ({ ranking, setUserAdvice, userAdvice }) => {
   return (
     <form className="flex items-center justify-center flex-col mt-5">
-      <fieldset disabled={ranking !== "Master Rizz"}>
+      <fieldset disabled={ranking !== "Master Rizz"} className="w-full">
         <div
           className={clsx("grid w-full grid-flow-col", {
             "justify-between": ranking !== "Master Rizz",

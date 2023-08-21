@@ -57,25 +57,25 @@ const Results = () => {
     <AnimatePresence>
       {isShowing && (
         <motion.section
-          className="flex justify-center items-center  w-full h-[600px] gap-5"
+          className="flex justify-center items-center  w-full h-[600px] gap-5 flex-col-reverse md:flex-row"
           variants={variant}
           initial="hidden"
           animate="show"
           exit="hidden"
         >
           <motion.div
-            className="basis-5/12 bg-white h-full rounded-xl"
+            className="basis-5/12 bg-white h-full rounded-xl w-full"
             variants={items}
           ></motion.div>
           <motion.div
-            className="basis-7/12 h-full text-center"
+            className="basis-7/12 h-full text-center w-full"
             variants={items}
           >
             <div>
-              <h1 className="text-center text-4xl sm:text-5xl font-extrabold text-black cursor-default orange_gradient mb-2">
+              <h1 className="text-center text-5xl font-extrabold text-black cursor-default orange_gradient mb-2">
                 {ranking}
               </h1>
-              <p className="mt-1 text-lg sm:text-xl">
+              <p className="mt-1 text-lg sm:text-xl cursor-default">
                 You Scored: {results} Points
               </p>
             </div>
