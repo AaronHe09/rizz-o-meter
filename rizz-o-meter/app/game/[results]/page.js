@@ -36,6 +36,13 @@ const Results = () => {
           {ranking}
         </h1>
         <p className="mt-1 text-lg sm:text-xl">You Scored: {results} Points</p>
+        <button
+          type="button"
+          className="mt-5 text-lg"
+          onClick={handlePlayAgain}
+        >
+          Play Again
+        </button>
       </div>
     </section>
   );
