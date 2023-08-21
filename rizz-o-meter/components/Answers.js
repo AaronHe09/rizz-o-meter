@@ -27,17 +27,17 @@ const Answers = ({
         {questions[currentQuestion].options.map((option, index) => {
           return (
             <motion.div
-              className="relative text-sm sm:text-lg cursor-default ml-5 mt-5 px-6 py-4 rounded-xl bg-white hover:shadow-xl transition-shadow duration-500"
+              className="relative text-sm sm:text-lg cursor-pointer ml-5 mt-5 px-6 py-4 rounded-xl bg-white hover:shadow-xl transition-shadow duration-500"
+              onClick={() => handleAnswer(option.points)}
               variants={items}
               key={uuid()}
             >
-              <button
+              <p
                 type="button"
                 className="text-lg text-center before:absolute before:transform before:-translate-y-1/2 before:top-1/2 before:left-[-10px] before:h-[2px] before:w-5 before:bg-white before:z-[-1]"
-                onClick={() => handleAnswer(option.points)}
               >
                 {option.text}
-              </button>
+              </p>
               <div
                 className={clsx(
                   "rounded-full h-6 w-6 absolute bg-black border-solid border-2 border-white top-1/2 transform -translate-y-1/2  left-[-32px]",
