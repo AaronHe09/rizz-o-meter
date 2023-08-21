@@ -104,7 +104,7 @@ const questions = [
 ];
 
 const Game = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(8);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
   const [playerPoints, setPlayerPoints] = useState(0);
   const [isShowing, setIsShowing] = useState(true);
   const router = useRouter();
@@ -131,7 +131,8 @@ const Game = () => {
     setIsShowing(false);
     setPlayerPoints(playerPoints + points);
     if (currentQuestion === 9) {
-      router.push("/results");
+      setCurrentQuestion(0);
+      router.push(`/game/${playerPoints}`);
       return;
     }
     setTimeout(() => {

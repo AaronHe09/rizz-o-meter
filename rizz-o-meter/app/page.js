@@ -47,7 +47,7 @@ export default function Home() {
           key={uuid()}
         >
           <motion.h1
-            className="text-5xl md:text-6xl font-extrabold leading-[1.15] text-black cursor-default"
+            className="text-5xl md:text-6xl font-extrabold text-black cursor-default"
             variants={items}
             key={uuid()}
           >
