@@ -4,12 +4,10 @@ import { useState } from "react";
 
 const Form = ({ ranking }) => {
   const [userAdvice, setUserAdvice] = useState("");
-  const [disabled, setDisabled] = useState(true);
+  const [disabled, setDisabled] = useState(undefined);
 
   useEffect(() => {
-    if (ranking === "Master Rizz") {
-      setDisabled(false);
-    }
+    ranking === "Master Rizz" ? setDisabled(false) : setDisabled(true);
   }, []);
 
   const handleSubmit = async (event) => {

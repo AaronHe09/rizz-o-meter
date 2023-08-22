@@ -79,13 +79,8 @@ body {
   opacity: 0.3;
 }
 
-@media screen and (max-width: 640px) {
-  .main {
-    padding: 0;
-  }
-}
 .app {
-  @apply relative z-10 flex justify-center items-center flex-col max-w-[612px] w-full sm:m-16 m-6 h-[80vh];
+  @apply relative z-10 flex justify-center items-center flex-col max-w-[1000px] w-full sm:m-16 m-6 h-[80vh] p-5;
 }
 
 .orange_gradient {
