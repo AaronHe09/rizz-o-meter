@@ -4,9 +4,10 @@ const Advice = ({ advices }) => {
   return (
     <div>
       {advices.map((advice) => {
+        const date = advice.createdAt.split("T");
         return (
-          <p>
-            [{advice.createdAt}]: {advice.advice}
+          <p className="text-sm mb-1">
+            [{date[0]}]: {advice.advice}
           </p>
         );
       })}

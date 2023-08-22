@@ -72,7 +72,7 @@ const Results = () => {
           exit="hidden"
         >
           <motion.div
-            className="basis-5/12 bg-white h-full rounded-xl w-full"
+            className="basis-5/12 bg-white h-full rounded-xl w-full overflow-y-scroll break-words p-3"
             variants={items}
           >
             <Advice advices={advices} />
