@@ -6,7 +6,7 @@ const Advice = ({ advices }) => {
       {advices.reverse().map((advice) => {
         const date = advice.createdAt.split("T");
         return (
-          <p className="text-sm mb-1">
+          <p className="mb-1">
             [{date[0]}]: {advice.advice}
           </p>
         );
