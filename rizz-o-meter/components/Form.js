@@ -1,9 +1,35 @@
 import React from "react";
 import clsx from "clsx";
+import { useState } from "react";
 
-const Form = ({ ranking, setUserAdvice, userAdvice }) => {
+const Form = ({ ranking }) => {
+  const [userAdvice, setUserAdvice] = useState("");
+
+  const handleSubmit = async (event) => {
+    try {
+      console.log(`userAdvice datatype in handleSubmit: ${userAdvice}`);
+      event.preventDefault();
+      const res = await fetch(`${window.location.href}/api/advice`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userAdvice }),
+      });
+      if (!res.ok) {
+        console.error("error posting", res.status);
+      }
+      event.target.reset();
+    } catch (error) {
+      console.error(error.messsge);
+    }
+  };
+
   return (
-    <form className="flex items-center justify-center flex-col mt-5">
+    <form
+      className="flex items-center justify-center flex-col mt-5"
+      onSubmit={(event) => handleSubmit(event)}
+    >
       <fieldset disabled={ranking !== "Master Rizz"} className="w-full">
         <div
           className={clsx("grid w-full grid-flow-col", {

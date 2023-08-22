@@ -7,13 +7,19 @@ import { AnimatePresence, easeOut, motion } from "framer-motion";
 
 const Results = () => {
   const [ranking, setRanking] = useState("");
-  const [userAdvice, setUserAdvice] = useState("");
   const [isShowing, setIsShowing] = useState(true);
+  const [advices, setAdvices] = useState([]);
   const { results } = useParams();
   const router = useRouter();
 
   useEffect(() => {
     setRanking(playerRanking());
+    const getAdvices = async () => {
+      const res = await fetch(`${window.location.href}/api/advice`);
+      const data = await res.json();
+      setAdvices(data);
+    };
+    getAdvices();
   }, []);
 
   const playerRanking = () => {
@@ -79,11 +85,7 @@ const Results = () => {
                 You Scored: {results} Points
               </p>
             </div>
-            <Form
-              ranking={ranking}
-              setUserAdvice={setUserAdvice}
-              userAdvice={userAdvice}
-            />
+            <Form ranking={ranking} />
             <button
               type="button"
               className="mt-2 text-lg py-1 px-5 rounded-md bg-black text-white"
