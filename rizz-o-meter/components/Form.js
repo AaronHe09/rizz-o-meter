@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import clsx from "clsx";
 import { useState } from "react";
 
-const Form = ({ ranking }) => {
+const Form = ({ ranking, setAdvices, handleGetAdvices }) => {
   const [userAdvice, setUserAdvice] = useState("");
   const [disabled, setDisabled] = useState(undefined);
 
@@ -22,10 +22,12 @@ const Form = ({ ranking }) => {
       });
       if (!res.ok) {
         console.error("error posting", res.status);
+        return;
       }
+
       event.target.reset();
       setDisabled(true);
-      console.log(disabled);
+      handleGetAdvices();
     } catch (error) {
       console.error(error.messsge);
     }
@@ -36,7 +38,7 @@ const Form = ({ ranking }) => {
       className="flex items-center justify-center flex-col mt-5"
       onSubmit={(event) => handleSubmit(event)}
     >
-      <fieldset disabled={disabled === true} className="w-full">
+      <fieldset className="w-full" disabled={disabled}>
         <div
           className={clsx("grid w-full grid-flow-col", {
             "justify-between": ranking !== "Master Rizz",

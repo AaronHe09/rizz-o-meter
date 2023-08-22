@@ -15,12 +15,7 @@ const Results = () => {
 
   useEffect(() => {
     setRanking(playerRanking());
-    const getAdvices = async () => {
-      const res = await fetch(`${window.location.href}/api/advice`);
-      const data = await res.json();
-      setAdvices(data);
-    };
-    getAdvices();
+    handleGetAdvices();
   }, []);
 
   const playerRanking = () => {
@@ -40,6 +35,12 @@ const Results = () => {
     setTimeout(() => {
       router.push("/");
     }, 300);
+  };
+
+  const handleGetAdvices = async () => {
+    const res = await fetch(`${window.location.href}/api/advice`);
+    const data = await res.json();
+    setAdvices(data);
   };
 
   const variant = {
@@ -88,7 +89,11 @@ const Results = () => {
                 You Scored: {results} Points
               </p>
             </div>
-            <Form ranking={ranking} />
+            <Form
+              ranking={ranking}
+              setAdvices={setAdvices}
+              handleGetAdvices={handleGetAdvices}
+            />
             <button
               type="button"
               className="mt-2 text-lg py-1 px-5 rounded-md bg-black text-white"
