@@ -79,15 +79,30 @@ body {
   opacity: 0.3;
 }
 
-@media screen and (max-width: 640px) {
-  .main {
-    padding: 0;
-  }
-}
 .app {
-  @apply relative z-10 flex justify-center items-center flex-col max-w-[612px] w-full sm:m-16 m-6 h-[80vh];
+  @apply relative z-10 flex justify-center items-center flex-col max-w-[1000px] w-full sm:m-16 m-6 h-[80vh] p-5;
 }
 
 .orange_gradient {
   @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
