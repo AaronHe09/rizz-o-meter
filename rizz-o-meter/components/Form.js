@@ -59,6 +59,7 @@ const Form = ({ ranking }) => {
           rows="3"
           maxLength={300}
           onChange={(e) => setUserAdvice(e.target.value)}
+          placeholder="Give your advice here if you are a Master Rizzer"
           className="w-full bg-transparent outline-1 outline-black outline p-2 resize-none"
         ></textarea>
         <button
