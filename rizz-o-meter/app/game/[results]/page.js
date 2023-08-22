@@ -19,7 +19,6 @@ const Results = () => {
       const res = await fetch(`${window.location.href}/api/advice`);
       const data = await res.json();
       setAdvices(data);
-      console.log(data);
     };
     getAdvices();
   }, []);
