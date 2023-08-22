@@ -14,7 +14,8 @@ const Results = () => {
   const router = useRouter();
 
   useEffect(() => {
-    setRanking(playerRanking());
+    const rank = playerRanking();
+    setRanking(rank);
     handleGetAdvices();
   }, []);
 

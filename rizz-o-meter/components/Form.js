@@ -8,7 +8,7 @@ const Form = ({ ranking, setAdvices, handleGetAdvices }) => {
 
   useEffect(() => {
     ranking === "Master Rizz" ? setDisabled(false) : setDisabled(true);
-  }, []);
+  }, [ranking]);
 
   const handleSubmit = async (event) => {
     try {

@@ -56,7 +56,7 @@ export default function Home() {
             <br />
             <motion.span className="orange_gradient inline-block mt-2">
               Unleash Your <br className="sm:hidden" />
-              Inner "Rizz"!
+              Inner &quot;Rizz&quot;!
             </motion.span>
           </motion.h1>
           <Gif absolute={false} />
@@ -65,8 +65,8 @@ export default function Home() {
             variants={items}
             key={uuid()}
           >
-            You're about to embark on a playful journey to determine your "Rizz"
-            level.
+            You&apos;re about to embark on a playful journey to determine your
+            &quot;Rizz&quot; level.
           </motion.p>
           <motion.button
             type="button"
