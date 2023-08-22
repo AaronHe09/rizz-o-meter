@@ -1,10 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
 import clsx from "clsx";
+import { useState } from "react";
 
-const Form = ({ ranking, setUserAdvice, userAdvice }) => {
+const Form = ({ ranking }) => {
+  const [userAdvice, setUserAdvice] = useState("");
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    if (ranking === "Master Rizz") {
+      setDisabled(false);
+    }
+  }, []);
+
+  const handleSubmit = async (event) => {
+    try {
+      event.preventDefault();
+      const res = await fetch(`${window.location.href}/api/advice`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userAdvice }),
+      });
+      if (!res.ok) {
+        console.error("error posting", res.status);
+      }
+      event.target.reset();
+      setDisabled(true);
+      console.log(disabled);
+    } catch (error) {
+      console.error(error.messsge);
+    }
+  };
+
   return (
-    <form className="flex items-center justify-center flex-col mt-5">
-      <fieldset disabled={ranking !== "Master Rizz"} className="w-full">
+    <form
+      className="flex items-center justify-center flex-col mt-5"
+      onSubmit={(event) => handleSubmit(event)}
+    >
+      <fieldset disabled={disabled === true} className="w-full">
         <div
           className={clsx("grid w-full grid-flow-col", {
             "justify-between": ranking !== "Master Rizz",
@@ -25,6 +59,7 @@ const Form = ({ ranking, setUserAdvice, userAdvice }) => {
           rows="3"
           maxLength={300}
           onChange={(e) => setUserAdvice(e.target.value)}
+          placeholder="Give your advice here if you are a Master Rizzer"
           className="w-full bg-transparent outline-1 outline-black outline p-2 resize-none"
         ></textarea>
         <button
