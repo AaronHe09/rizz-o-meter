@@ -28,6 +28,6 @@ Try the application live at [https://student-grade-table.lfz.com](https://studen
 
 ## Preview
 
-![SGT React](rizz-o-meter\public\assets\rizz.gif)
+![gif](rizz-o-meter\public\assets\rizz.gif)
 
 ## Development
