@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Form from "@/components/Form";
 import { AnimatePresence, easeOut, motion } from "framer-motion";
+import Advice from "@/components/Advice";
 
 const Results = () => {
   const [ranking, setRanking] = useState("");
@@ -18,6 +19,7 @@ const Results = () => {
       const res = await fetch(`${window.location.href}/api/advice`);
       const data = await res.json();
       setAdvices(data);
+      console.log(data);
     };
     getAdvices();
   }, []);
@@ -72,7 +74,9 @@ const Results = () => {
           <motion.div
             className="basis-5/12 bg-white h-full rounded-xl w-full"
             variants={items}
-          ></motion.div>
+          >
+            <Advice advices={advices} />
+          </motion.div>
           <motion.div
             className="basis-7/12 h-full text-center w-full"
             variants={items}
