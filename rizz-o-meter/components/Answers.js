@@ -13,11 +13,7 @@ const Answers = ({
   return (
     <AnimatePresence>
       <motion.div
-        className={clsx(
-          "relative ml-16 before:content-[''] before:absolute before:left-[-1px] before:top-[-2px] before:border-l-2 before:border-dotted before:border-white text-center",
-          { "before:h-[260px]": currentQuestion !== 6 },
-          { "before:h-[280px]": currentQuestion === 6 }
-        )}
+        className="relative ml-16 before:content-[''] before:absolute before:left-[-1px] before:top-[-2px] before:border-l-2 before:border-dotted before:border-white text-center before:h-[90%]"
         variants={variant}
         initial="hidden"
         animate="show"
