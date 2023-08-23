@@ -5,11 +5,14 @@ import { useRouter } from "next/navigation";
 import Form from "@/components/Form";
 import { AnimatePresence, easeOut, motion } from "framer-motion";
 import Advice from "@/components/Advice";
+import ShowError from "@/components/Error";
+import Loader from "@/components/Loader";
 
 const Results = () => {
   const [ranking, setRanking] = useState("");
-  const [isShowing, setIsShowing] = useState(true);
+  const [isShowing, setIsShowing] = useState(false);
   const [advices, setAdvices] = useState([]);
+  const [error, setError] = useState("");
   const { results } = useParams();
   const router = useRouter();
 
@@ -33,9 +36,15 @@ const Results = () => {
   };
 
   const handleGetAdvices = async () => {
-    const res = await fetch(`/api/advice`);
-    const data = await res.json();
-    setAdvices(data.result);
+    try {
+      const res = await fetch(`/api/advice`);
+      const data = await res.json();
+      setAdvices(data.result);
+      setIsShowing(true);
+    } catch (error) {
+      setError(error.message);
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -61,6 +70,14 @@ const Results = () => {
     },
     exit: { opacity: 0, scale: 0.5 },
   };
+
+  if (error) {
+    return <ShowError error={error} />;
+  }
+
+  if (!isShowing) {
+    return <Loader />;
+  }
 
   return (
     <AnimatePresence>
