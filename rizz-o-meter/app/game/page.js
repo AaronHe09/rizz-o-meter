@@ -149,7 +149,6 @@ const Game = () => {
 
   return (
     <AnimatePresence>
-      {console.log(playerPoints)}
       {isShowing && (
         <motion.section
           className="max-w-[462px] w-full"
