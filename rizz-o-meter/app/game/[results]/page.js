@@ -33,9 +33,9 @@ const Results = () => {
   };
 
   const handleGetAdvices = async () => {
-    const res = await fetch(`${window.location.href}/api/advice`);
+    const res = await fetch(`/api/advice`);
     const data = await res.json();
-    setAdvices(data);
+    setAdvices(data.result);
   };
 
   useEffect(() => {

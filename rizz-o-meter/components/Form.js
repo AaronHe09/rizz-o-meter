@@ -13,7 +13,7 @@ const Form = ({ ranking, setAdvices, handleGetAdvices }) => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      const res = await fetch(`${window.location.href}/api/advice`, {
+      const res = await fetch(`/api/advice`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
