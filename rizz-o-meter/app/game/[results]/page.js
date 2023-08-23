@@ -13,12 +13,6 @@ const Results = () => {
   const { results } = useParams();
   const router = useRouter();
 
-  useEffect(() => {
-    const rank = playerRanking();
-    setRanking(rank);
-    handleGetAdvices();
-  }, []);
-
   const playerRanking = () => {
     if (results > 0 && results < 15) {
       return "Beginner Rizz";
@@ -43,6 +37,12 @@ const Results = () => {
     const data = await res.json();
     setAdvices(data);
   };
+
+  useEffect(() => {
+    const rank = playerRanking();
+    setRanking(rank);
+    handleGetAdvices();
+  }, [playerRanking]);
 
   const variant = {
     hidden: { opacity: 0 },
