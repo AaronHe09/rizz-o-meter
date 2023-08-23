@@ -17,7 +17,7 @@ This project was made to help learn Next.js, Tailwind, Prisma, and Framer Motion
 
 ## Live Demo
 
-Try the application live at [https://student-grade-table.lfz.com](https://student-grade-table.lfz.com)
+Try the application live at [https://rizz-o-meter.vercel.app/](https://rizz-o-meter.vercel.app/)
 
 ## Features
 
