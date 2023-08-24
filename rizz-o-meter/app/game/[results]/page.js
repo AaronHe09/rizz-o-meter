@@ -6,7 +6,6 @@ import Form from "@/components/Form";
 import { AnimatePresence, easeOut, motion } from "framer-motion";
 import Advice from "@/components/Advice";
 import ShowError from "@/components/Error";
-import Loader from "@/components/Loader";
 
 const Results = () => {
   const [ranking, setRanking] = useState("");
@@ -73,10 +72,6 @@ const Results = () => {
 
   if (error) {
     return <ShowError error={error} />;
-  }
-
-  if (!isShowing) {
-    return <Loader />;
   }
 
   return (
