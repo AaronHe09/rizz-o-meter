@@ -80,7 +80,7 @@ body {
 }
 
 .app {
-  @apply relative z-10 flex justify-center items-center flex-col max-w-[1000px] w-full h-[80vh] p-5;
+  @apply relative z-10 flex justify-center items-center flex-col max-w-[1000px] w-full p-5;
 }
 
 .orange_gradient {
