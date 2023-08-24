@@ -1,6 +1,6 @@
-import React from "react";
+"use client";
 
-const Loader = () => {
+const loading = () => {
   return (
     <div role="status">
       <svg
@@ -24,4 +24,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default loading;
