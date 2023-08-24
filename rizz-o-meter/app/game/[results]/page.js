@@ -11,7 +11,6 @@ const Results = () => {
   const [ranking, setRanking] = useState("");
   const [isShowing, setIsShowing] = useState(false);
   const [advices, setAdvices] = useState([]);
-  const [error, setError] = useState("");
   const { results } = useParams();
   const router = useRouter();
 
@@ -35,15 +34,10 @@ const Results = () => {
   };
 
   const handleGetAdvices = async () => {
-    try {
-      const res = await fetch(`/api/advice`);
-      const data = await res.json();
-      setAdvices(data.result);
-      setIsShowing(true);
-    } catch (error) {
-      setError(error.message);
-      console.log(error);
-    }
+    const res = await fetch(`/api/advice`);
+    const data = await res.json();
+    setAdvices(data.result);
+    setIsShowing(true);
   };
 
   useEffect(() => {
@@ -69,10 +63,6 @@ const Results = () => {
     },
     exit: { opacity: 0, scale: 0.5 },
   };
-
-  if (error) {
-    return <ShowError error={error} />;
-  }
 
   return (
     <AnimatePresence>
