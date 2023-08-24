@@ -10,7 +10,6 @@ This project was made to help learn Next.js, Tailwind, Prisma, and Framer Motion
 
 - Next.js
 - Tailwind
-- Prisma
 - Framer Motion
 - HTML5
 - CSS3
