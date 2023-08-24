@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import uuid from "react-uuid";
 
@@ -21,19 +20,19 @@ const Footer = () => {
         key={uuid()}
       >
         <div>
-          <Link
+          <a
             href="https://github.com/AaronHe09"
             className="font-anonymous text-xl"
           >
             GitHub
-          </Link>
+          </a>
           <span className="font-anonymous text-xl m-2">|</span>
-          <Link
+          <a
             href="https://www.linkedin.com/in/aaronhe09/"
             className="font-anonymous text-xl"
           >
             LinkedIn
-          </Link>
+          </a>
         </div>
         <p className="font-anonymous text">aaronhe09@yahoo.com</p>
       </motion.footer>
