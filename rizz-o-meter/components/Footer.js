@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <AnimatePresence>
       <motion.footer
-        className=" absolute bottom-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 flex flex-col text-center"
+        className=" absolute bottom-0 left-1/2 transform -translate-x-1/2 flex flex-col text-center"
         variants={variant}
         initial="hidden"
         animate="show"
