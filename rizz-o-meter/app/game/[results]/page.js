@@ -26,7 +26,6 @@ const Results = () => {
   };
 
   const handlePlayAgain = () => {
-    setIsShowing(false);
     setTimeout(() => {
       router.push("/");
     }, 300);
