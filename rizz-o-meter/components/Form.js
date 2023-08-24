@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import clsx from "clsx";
 import { useState } from "react";
 
-const Form = ({ ranking, setAdvices, handleGetAdvices }) => {
+const Form = ({ ranking, handleGetAdvices }) => {
   const [userAdvice, setUserAdvice] = useState("");
   const [disabled, setDisabled] = useState(undefined);
 

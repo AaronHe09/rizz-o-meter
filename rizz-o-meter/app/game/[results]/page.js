@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import Form from "@/components/Form";
 import { AnimatePresence, easeOut, motion } from "framer-motion";
 import Advice from "@/components/Advice";
-import ShowError from "@/components/Error";
 
 const Results = () => {
   const [ranking, setRanking] = useState("");
