@@ -1,4 +1,4 @@
-# student-grade-table
+# Rizz-O-Meter
 
 A full stack JavaScript application for people who want to know how much rizz they possess
 
